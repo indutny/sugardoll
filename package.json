@@ -9,6 +9,8 @@
     "vows": ">= 0.5.11"
   },
 
+  "main": "./lib/sugardoll",
+
   "scripts": {
     "test": "vows --spec test/*-test.js"
   }
