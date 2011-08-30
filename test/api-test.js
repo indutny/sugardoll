@@ -94,10 +94,10 @@ vows.describe('sugardoll/api-test').addBatch({
           return sugardoll.run('hello + " " + post_d { pre_w { "orl" } }', {
             hello: sugardoll.plugins.define('hello'),
             pre_w: sugardoll.plugins.block(function(ast) {
-              return '"w" + ' + this.generate(ast);
+              return '"w" + ' + this.compile(ast);
             }),
             post_d: sugardoll.plugins.block(function(ast) {
-              return this.generate(ast) + ' + "d"';
+              return this.compile(ast) + ' + "d"';
             })
           });
         },
@@ -109,7 +109,7 @@ vows.describe('sugardoll/api-test').addBatch({
         topic: function() {
           return sugardoll.run('test (var x = 1) { x }', {
             test: sugardoll.plugins.parenBlock(function(args, body) {
-              return this.generate(args) + ';' + this.generate(body);
+              return this.compile(args) + ';' + this.compile(body);
             })
           })
         },
