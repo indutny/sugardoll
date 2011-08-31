@@ -116,6 +116,18 @@ vows.describe('sugardoll/api-test').addBatch({
         'should return correct result': function(result) {
           assert.equal(result, 1);
         }
+      },
+      'with parenBlock and if': {
+        topic: function() {
+          return sugardoll.run('test (var x = 1) { if(x) {x} }', {
+            test: sugardoll.plugins.parenBlock(function(args, body) {
+              return this.compile(args) + ';' + this.compile(body);
+            })
+          })
+        },
+        'should return correct result': function(result) {
+          assert.equal(result, 1);
+        }
       }
     }
   }
