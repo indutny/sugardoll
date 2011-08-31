@@ -26,12 +26,12 @@ vows.describe('sugardoll/api-test').addBatch({
       },
       'with one define plugin within expression': {
         topic: function() {
-          return sugardoll.run('1 + test * test;', {
+          return sugardoll.run('1 + test * test + /1/.test("1") && 2;', {
             test: sugardoll.plugins.define(2)
           });
         },
         'should return correct result': function(result) {
-          assert.equal(result, 5);
+          assert.equal(result, 7);
         }
       },
       'with one define plugin within expression': {
