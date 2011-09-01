@@ -1,6 +1,6 @@
 {
   "name": "sugardoll",
-  "version": "0.0.1-dev",
+  "version": "0.0.1",
 
   "dependencies": {
     "uglify-js": ">= 1.0.7"
